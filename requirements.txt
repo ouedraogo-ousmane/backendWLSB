@@ -6,4 +6,5 @@ requests
 django-cors-headers
 django-filter
 django-utils-six
-requests
+requests,
+dj-database-url
