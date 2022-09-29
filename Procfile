@@ -1,1 +1,1 @@
-web: gunicorn <wlsb-backend>.wsgi --log-file -
+web: gunicorn app:app
