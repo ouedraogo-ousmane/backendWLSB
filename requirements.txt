@@ -8,3 +8,4 @@ django-filter
 django-utils-six
 requests
 dj-database-url
+whitenoise
