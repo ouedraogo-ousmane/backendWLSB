@@ -10,3 +10,4 @@ requests
 dj-database-url
 whitenoise
 psycopg2
+gunicorn
