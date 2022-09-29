@@ -9,3 +9,4 @@ django-utils-six
 requests
 dj-database-url
 whitenoise
+psycopg2
