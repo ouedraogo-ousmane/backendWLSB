@@ -201,10 +201,10 @@ class documentVehicules(docsTransports):
         table contenant les informations sur la date d'expiration des documents
         d'un vehicule
     '''
-    LISTE_DOCS = [
-        ('visite technique','visite technique'),
-        ('assurance', 'assurance')
-    ]
+    # LISTE_DOCS = [
+    #     ('visite technique','visite technique'),
+    #     ('assurance', 'assurance')
+    # ]
 
     vehicule = models.ForeignKey(
         VehiculeParcs,

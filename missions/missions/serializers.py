@@ -66,19 +66,20 @@ class documentVehiculesSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'intitule',
+            'chauffeur',
             'date_expiration',
             'nbreJoursRestant',
             'nbreMoisRestant',
             'vehicule',
-            'chauffeur'
+            
         )
+
 
     def get_chauffeur(self, obj):
         return Chauffeurs.objects.filter(vehicule=obj.vehicule).values("id","nom", "prenom", "telephone")[0]
 
 class VehiculeParcsSerializer(VehiculesSerializer):
     # nbreDocument = serializers.SerializerMethodField(read_only=True)
-    
     class Meta:
         model = VehiculeParcs
         fields = (
@@ -88,13 +89,11 @@ class VehiculeParcsSerializer(VehiculesSerializer):
             'couleur',
             # 'chauffeur'
             )
-    
 
     # def get_nbreDocument(self, obj):
     #     return  obj.infos_documents.count()
 
 class VehiculeLouesSerializer(serializers.ModelSerializer):
-    
     class Meta:
         model = VehiculeLoues
         fields = '__all__'
@@ -103,23 +102,9 @@ class ChauffeursSerializer(serializers.ModelSerializer):
     '''
         Serializer pour le model chauffeurs
     '''
-    vehiculeInfos = serializers.SerializerMethodField()
     class Meta:
         model = Chauffeurs
-        fields = (
-            'id',
-            'nom',
-            'prenom',
-            'telephone',
-            'salaire',
-            'vehicule',
-            'vehiculeInfos'
-        )
-        
-    def get_vehiculeInfos(self, obj):
-        
-        return Vehicules.objects.filter(pk=obj.vehicule_id).values("id","immat")[0]
-
+        fields = '__all__'
 
 class RecetteDetailPesageSerializer(serializers.ModelSerializer):
     '''
